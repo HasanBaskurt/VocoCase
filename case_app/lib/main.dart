@@ -14,7 +14,7 @@ class CaseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return Sizer(builder: (context, orientation, deviceType) {
-      return const MaterialApp(title: 'Material App', home: HomeView());
+      return const MaterialApp(title: 'Material App', home: LoginView());
     });
   }
 }

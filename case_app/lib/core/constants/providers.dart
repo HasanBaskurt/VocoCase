@@ -19,7 +19,7 @@ final authServiceProvider = Provider<AuthService>(
 final homeNotifierProvider = StateNotifierProvider<HomeController, DataState>(
   (ref) => HomeController(ref.read(homeServiceProvider)),
 );
-/*
+
 final authNotifierProvider = StateNotifierProvider<AuthController, DataState>(
   (ref) => AuthController(ref.read(authServiceProvider)),
-);*/
+);

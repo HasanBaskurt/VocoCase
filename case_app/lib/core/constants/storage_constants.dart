@@ -1,3 +1,4 @@
 class StorageConstants {
-  static const String prefix = 'case_';
+  static const String prefix = 'caseApp_';
+  static const String currentUser = '${prefix}currentUser';
 }
