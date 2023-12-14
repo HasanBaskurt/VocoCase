@@ -1,4 +1,3 @@
-import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class LoginTitle extends StatelessWidget {
@@ -6,8 +5,9 @@ class LoginTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).colorScheme;
     return FittedBox(
-      child: Text('Login', style: TextStyle(color: AppColors.red)),
+      child: Text('Login', style: TextStyle(color: themeColor.primary)),
     );
   }
 }

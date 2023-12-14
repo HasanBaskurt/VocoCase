@@ -1,6 +1,5 @@
 import 'package:case_app/core/constants/providers.dart';
 import 'package:case_app/features/auth/model/current_user_model.dart';
-import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -10,30 +9,34 @@ class EmailField extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentUserProvider = ref.read(currentUserNotifierProvider.notifier);
+
+    final themeColor = Theme.of(context).colorScheme;
     return TextFormField(
       initialValue: '',
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: themeColor.onPrimary),
       decoration: InputDecoration(
-          errorStyle: const TextStyle(color: Colors.white),
+          errorStyle: TextStyle(color: themeColor.onPrimary),
           enabledBorder: UnderlineInputBorder(
-              borderSide: BorderSide(color: Colors.white.withOpacity(0.5))),
+              borderSide:
+                  BorderSide(color: themeColor.onPrimary.withOpacity(0.5))),
           focusedBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: AppColors.red.withOpacity(0.5)),
+            borderSide: BorderSide(color: themeColor.primary.withOpacity(0.5)),
           ),
           errorBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: Colors.white.withOpacity(0.5)),
+            borderSide:
+                BorderSide(color: themeColor.onPrimary.withOpacity(0.5)),
           ),
           focusedErrorBorder: UnderlineInputBorder(
-            borderSide: BorderSide(color: AppColors.red.withOpacity(0.5)),
+            borderSide: BorderSide(color: themeColor.primary.withOpacity(0.5)),
           ),
-          prefixIcon: const Icon(
+          prefixIcon: Icon(
             Icons.person_outline_outlined,
-            color: Colors.white,
+            color: themeColor.onPrimary,
           ),
           hintText: 'Type your email',
-          hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
-          labelStyle: const TextStyle(
-            color: Colors.white,
+          hintStyle: TextStyle(color: themeColor.onPrimary.withOpacity(0.5)),
+          labelStyle: TextStyle(
+            color: themeColor.onPrimary,
           )),
       onSaved: (value) {
         if (value != null) {

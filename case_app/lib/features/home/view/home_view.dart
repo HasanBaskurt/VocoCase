@@ -1,10 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:animate_do/animate_do.dart';
 import 'package:case_app/core/constants/providers.dart';
 import 'package:case_app/core/constants/route_constants.dart';
 import 'package:case_app/core/storage/local_storage.dart';
-import 'package:case_app/features/auth/view/login_view.dart';
 import 'package:case_app/features/home/view/widgets/user_info_card.dart';
-import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
@@ -25,9 +25,10 @@ class _HomeViewState extends ConsumerState<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).colorScheme;
     final userListState = ref.watch(homeNotifierProvider);
     return Scaffold(
-        backgroundColor: AppColors.darkgrey,
+        backgroundColor: themeColor.background,
         appBar: AppBar(
           leading: IconButton(
               onPressed: () async {
@@ -35,10 +36,13 @@ class _HomeViewState extends ConsumerState<HomeView> {
                 Navigator.popAndPushNamed(
                     context, RouteConstants.routeLoginView);
               },
-              icon: const Icon(Icons.arrow_back)),
+              icon: Icon(
+                Icons.arrow_back,
+                color: themeColor.primary,
+              )),
           title: Text(
             'User List',
-            style: TextStyle(color: AppColors.red),
+            style: TextStyle(color: themeColor.primary),
           ),
           centerTitle: true,
           forceMaterialTransparency: true,
@@ -47,7 +51,7 @@ class _HomeViewState extends ConsumerState<HomeView> {
           child: userListState.maybeWhen(
               loading: () => Center(
                     child: CircularProgressIndicator(
-                      color: AppColors.red,
+                      color: themeColor.primary,
                     ),
                   ),
               success: (userList) => (userList.isEmpty)

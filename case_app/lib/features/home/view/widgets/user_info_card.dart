@@ -1,5 +1,4 @@
 import 'package:case_app/features/home/model/user_model.dart';
-import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
 
@@ -9,12 +8,13 @@ class UserInfoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).colorScheme;
     return Card(
-      shadowColor: AppColors.grey,
+      shadowColor: themeColor.outline,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(4.h),
       ),
-      elevation: 10,
+      elevation: .5.h,
       child: Container(
         padding: EdgeInsets.all(1.h),
         decoration: BoxDecoration(

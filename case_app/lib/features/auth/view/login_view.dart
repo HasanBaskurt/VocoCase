@@ -2,7 +2,6 @@ import 'package:case_app/features/auth/view/widgets/email_field.dart';
 import 'package:case_app/features/auth/view/widgets/login_button.dart';
 import 'package:case_app/features/auth/view/widgets/login_title.dart';
 import 'package:case_app/features/auth/view/widgets/password_field.dart';
-import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:sizer/sizer.dart';
@@ -12,14 +11,16 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final themeColor = Theme.of(context).colorScheme;
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    return Scaffold(resizeToAvoidBottomInset: false, body: buildBody(formKey));
+    return Scaffold(
+        resizeToAvoidBottomInset: false, body: buildBody(formKey, themeColor));
   }
 
-  Widget buildBody(GlobalKey<FormState> formKey) {
+  Widget buildBody(GlobalKey<FormState> formKey, themeColor) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 8.w),
-      color: AppColors.darkgrey,
+      color: themeColor.background,
       child: Form(
         key: formKey,
         child: Column(
