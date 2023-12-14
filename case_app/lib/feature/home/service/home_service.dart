@@ -1,28 +1,23 @@
 import 'dart:convert';
 
+import 'package:case_app/core/constants/api_constanst.dart';
 import 'package:case_app/feature/home/model/user_model.dart';
 import 'package:http/http.dart';
 
 class HomeService {
   Future<List<UserModel>> getUserList(String page) async {
-    var url = Uri.parse('https://reqres.in/api/unknown');
+    var url = Uri.parse(ApiConstants.getUserListUrl + page);
     try {
-      Response response = await get(url, headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': 'true',
-        'Access-Control-Allow-Headers': 'Content-Type',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
-      });
+      Response response = await get(url);
 
       if (response.statusCode == 200) {
         final List result = jsonDecode(response.body)['data'];
-        return result.map(((e) => UserModel.fromJson(e))).toList();
+        return result.map(((e) => UserModel.fromMap(e))).toList();
       } else {
         throw Exception('An error occurred');
       }
     } catch (e) {
-      throw Exception("Couldn't login. Is the device online?");
+      throw Exception("Is the device online?");
     }
   }
 }

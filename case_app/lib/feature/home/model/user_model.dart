@@ -35,8 +35,8 @@ class UserModel {
 
     result.addAll({'id': id});
     result.addAll({'email': email});
-    result.addAll({'firstName': firstName});
-    result.addAll({'lastName': lastName});
+    result.addAll({'first_name': firstName});
+    result.addAll({'last_name': lastName});
     result.addAll({'avatar': avatar});
 
     return result;
@@ -46,8 +46,8 @@ class UserModel {
     return UserModel(
       id: map['id']?.toInt() ?? 0,
       email: map['email'] ?? '',
-      firstName: map['firstName'] ?? '',
-      lastName: map['lastName'] ?? '',
+      firstName: map['first_name'] ?? '',
+      lastName: map['last_name'] ?? '',
       avatar: map['avatar'] ?? '',
     );
   }
@@ -59,7 +59,7 @@ class UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, email: $email, firstName: $firstName, lastName: $lastName, avatar: $avatar)';
+    return 'UserModel(id: $id, email: $email, first_name: $firstName, last_name: $lastName, avatar: $avatar)';
   }
 
   @override

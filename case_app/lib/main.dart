@@ -1,6 +1,7 @@
 import 'package:case_app/feature/auth/view/login_view.dart';
 import 'package:case_app/feature/home/view/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
 
@@ -11,8 +12,9 @@ class CaseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
     return Sizer(builder: (context, orientation, deviceType) {
-      return MaterialApp(title: 'Material App', home: HomeView());
+      return const MaterialApp(title: 'Material App', home: HomeView());
     });
   }
 }
