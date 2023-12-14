@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:case_app/core/constants/data_state.dart';
 import 'package:case_app/core/constants/storage_constants.dart';
 import 'package:case_app/core/storage/local_storage.dart';
@@ -19,12 +21,24 @@ class AuthController extends StateNotifier<DataState> {
       final currentUser =
           CurrentUserModel(email: email, password: password, token: token);
       await LocalStorage.setString(
-          StorageConstants.currentUser, currentUser.toString());
+          StorageConstants.currentUser, currentUser.toJson());
       state = DataState.success(data: currentUser);
     } catch (e) {
       state = DataState.error(message: e.toString());
     }
   }
+
+  Future<CurrentUserModel?> tryAutoLogin() async {
+    String? currentUserJson =
+        await LocalStorage.getString(StorageConstants.currentUser);
+
+    CurrentUserModel? currentUser = currentUserJson != null
+        ? CurrentUserModel.fromJson(currentUserJson)
+        : null;
+    return currentUser;
+  }
+
+
 
   @override
   void dispose() {

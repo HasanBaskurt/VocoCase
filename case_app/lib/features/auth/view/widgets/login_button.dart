@@ -1,6 +1,8 @@
 import 'package:case_app/core/constants/data_state.dart';
 import 'package:case_app/core/constants/providers.dart';
+import 'package:case_app/core/constants/route_constants.dart';
 import 'package:case_app/features/home/view/home_view.dart';
+import 'package:case_app/utils/routes/app_routes.dart';
 import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,10 +21,8 @@ class LoginButton extends ConsumerWidget {
       state.maybeWhen(
         success: (currentUser) {
           currentUserProvider.changeCurrentUser(currentUser);
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const HomeView()),
-          );
+
+          Navigator.pushNamed(context, RouteConstants.routeHomeView);
         },
         error: (err, _) {
           ScaffoldMessenger.of(context).showSnackBar(

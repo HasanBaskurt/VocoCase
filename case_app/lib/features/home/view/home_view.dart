@@ -1,5 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:case_app/core/constants/providers.dart';
+import 'package:case_app/core/constants/route_constants.dart';
+import 'package:case_app/core/storage/local_storage.dart';
+import 'package:case_app/features/auth/view/login_view.dart';
 import 'package:case_app/features/home/view/widgets/user_info_card.dart';
 import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +29,13 @@ class _HomeViewState extends ConsumerState<HomeView> {
     return Scaffold(
         backgroundColor: AppColors.darkgrey,
         appBar: AppBar(
+          leading: IconButton(
+              onPressed: () async {
+                await LocalStorage.resetShared();
+                Navigator.popAndPushNamed(
+                    context, RouteConstants.routeLoginView);
+              },
+              icon: const Icon(Icons.arrow_back)),
           title: Text(
             'User List',
             style: TextStyle(color: AppColors.red),

@@ -17,4 +17,9 @@ class LocalStorage {
     final SharedPreferences prefs = await getInstance();
     return prefs.setString(key, value);
   }
+
+  static Future<void> resetShared() async {
+    final SharedPreferences prefs = await getInstance();
+    prefs.clear();
+  }
 }
