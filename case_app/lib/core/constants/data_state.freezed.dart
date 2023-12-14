@@ -18,6 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DataState<T> {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message, StackTrace? stackTrace) error,
@@ -25,6 +26,7 @@ mixin _$DataState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message, StackTrace? stackTrace)? error,
@@ -32,6 +34,7 @@ mixin _$DataState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message, StackTrace? stackTrace)? error,
@@ -40,6 +43,7 @@ mixin _$DataState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Loading<T> value) loading,
     required TResult Function(_Success<T> value) success,
     required TResult Function(_Error<T> value) error,
@@ -47,6 +51,7 @@ mixin _$DataState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Loading<T> value)? loading,
     TResult? Function(_Success<T> value)? success,
     TResult? Function(_Error<T> value)? error,
@@ -54,6 +59,7 @@ mixin _$DataState<T> {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Loading<T> value)? loading,
     TResult Function(_Success<T> value)? success,
     TResult Function(_Error<T> value)? error,
@@ -78,6 +84,120 @@ class _$DataStateCopyWithImpl<T, $Res, $Val extends DataState<T>>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$InitialImplCopyWith<T, $Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl<T> value, $Res Function(_$InitialImpl<T>) then) =
+      __$$InitialImplCopyWithImpl<T, $Res>;
+}
+
+/// @nodoc
+class __$$InitialImplCopyWithImpl<T, $Res>
+    extends _$DataStateCopyWithImpl<T, $Res, _$InitialImpl<T>>
+    implements _$$InitialImplCopyWith<T, $Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl<T> _value, $Res Function(_$InitialImpl<T>) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitialImpl<T> implements _Initial<T> {
+  const _$InitialImpl();
+
+  @override
+  String toString() {
+    return 'DataState<$T>.initial()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl<T>);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(T data) success,
+    required TResult Function(String message, StackTrace? stackTrace) error,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(T data)? success,
+    TResult? Function(String message, StackTrace? stackTrace)? error,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(T data)? success,
+    TResult Function(String message, StackTrace? stackTrace)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
+    required TResult Function(_Loading<T> value) loading,
+    required TResult Function(_Success<T> value) success,
+    required TResult Function(_Error<T> value) error,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
+    TResult? Function(_Loading<T> value)? loading,
+    TResult? Function(_Success<T> value)? success,
+    TResult? Function(_Error<T> value)? error,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
+    TResult Function(_Loading<T> value)? loading,
+    TResult Function(_Success<T> value)? success,
+    TResult Function(_Error<T> value)? error,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial<T> implements DataState<T> {
+  const factory _Initial() = _$InitialImpl<T>;
 }
 
 /// @nodoc
@@ -118,6 +238,7 @@ class _$LoadingImpl<T> implements _Loading<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message, StackTrace? stackTrace) error,
@@ -128,6 +249,7 @@ class _$LoadingImpl<T> implements _Loading<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message, StackTrace? stackTrace)? error,
@@ -138,6 +260,7 @@ class _$LoadingImpl<T> implements _Loading<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message, StackTrace? stackTrace)? error,
@@ -152,6 +275,7 @@ class _$LoadingImpl<T> implements _Loading<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Loading<T> value) loading,
     required TResult Function(_Success<T> value) success,
     required TResult Function(_Error<T> value) error,
@@ -162,6 +286,7 @@ class _$LoadingImpl<T> implements _Loading<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Loading<T> value)? loading,
     TResult? Function(_Success<T> value)? success,
     TResult? Function(_Error<T> value)? error,
@@ -172,6 +297,7 @@ class _$LoadingImpl<T> implements _Loading<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Loading<T> value)? loading,
     TResult Function(_Success<T> value)? success,
     TResult Function(_Error<T> value)? error,
@@ -253,6 +379,7 @@ class _$SuccessImpl<T> implements _Success<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message, StackTrace? stackTrace) error,
@@ -263,6 +390,7 @@ class _$SuccessImpl<T> implements _Success<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message, StackTrace? stackTrace)? error,
@@ -273,6 +401,7 @@ class _$SuccessImpl<T> implements _Success<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message, StackTrace? stackTrace)? error,
@@ -287,6 +416,7 @@ class _$SuccessImpl<T> implements _Success<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Loading<T> value) loading,
     required TResult Function(_Success<T> value) success,
     required TResult Function(_Error<T> value) error,
@@ -297,6 +427,7 @@ class _$SuccessImpl<T> implements _Success<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Loading<T> value)? loading,
     TResult? Function(_Success<T> value)? success,
     TResult? Function(_Error<T> value)? error,
@@ -307,6 +438,7 @@ class _$SuccessImpl<T> implements _Success<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Loading<T> value)? loading,
     TResult Function(_Success<T> value)? success,
     TResult Function(_Error<T> value)? error,
@@ -401,6 +533,7 @@ class _$ErrorImpl<T> implements _Error<T> {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initial,
     required TResult Function() loading,
     required TResult Function(T data) success,
     required TResult Function(String message, StackTrace? stackTrace) error,
@@ -411,6 +544,7 @@ class _$ErrorImpl<T> implements _Error<T> {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(T data)? success,
     TResult? Function(String message, StackTrace? stackTrace)? error,
@@ -421,6 +555,7 @@ class _$ErrorImpl<T> implements _Error<T> {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(T data)? success,
     TResult Function(String message, StackTrace? stackTrace)? error,
@@ -435,6 +570,7 @@ class _$ErrorImpl<T> implements _Error<T> {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_Initial<T> value) initial,
     required TResult Function(_Loading<T> value) loading,
     required TResult Function(_Success<T> value) success,
     required TResult Function(_Error<T> value) error,
@@ -445,6 +581,7 @@ class _$ErrorImpl<T> implements _Error<T> {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial<T> value)? initial,
     TResult? Function(_Loading<T> value)? loading,
     TResult? Function(_Success<T> value)? success,
     TResult? Function(_Error<T> value)? error,
@@ -455,6 +592,7 @@ class _$ErrorImpl<T> implements _Error<T> {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial<T> value)? initial,
     TResult Function(_Loading<T> value)? loading,
     TResult Function(_Success<T> value)? success,
     TResult Function(_Error<T> value)? error,

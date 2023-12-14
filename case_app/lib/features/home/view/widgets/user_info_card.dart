@@ -1,4 +1,4 @@
-import 'package:case_app/feature/home/model/user_model.dart';
+import 'package:case_app/features/home/model/user_model.dart';
 import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';

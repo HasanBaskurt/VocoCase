@@ -1,5 +1,4 @@
-import 'package:case_app/feature/auth/view/login_view.dart';
-import 'package:case_app/feature/home/view/home_view.dart';
+import 'package:case_app/features/auth/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

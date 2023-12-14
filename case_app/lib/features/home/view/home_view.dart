@@ -1,6 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:case_app/core/constants/providers.dart';
-import 'package:case_app/feature/home/view/widgets/user_info_card.dart';
+import 'package:case_app/features/home/view/widgets/user_info_card.dart';
 import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

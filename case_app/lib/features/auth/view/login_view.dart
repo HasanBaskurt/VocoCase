@@ -1,11 +1,10 @@
-import 'package:case_app/feature/auth/view/widgets/email_field.dart';
-import 'package:case_app/feature/auth/view/widgets/login_button.dart';
-import 'package:case_app/feature/auth/view/widgets/login_title.dart';
-import 'package:case_app/feature/auth/view/widgets/password_field.dart';
+import 'package:case_app/features/auth/view/widgets/email_field.dart';
+import 'package:case_app/features/auth/view/widgets/login_button.dart';
+import 'package:case_app/features/auth/view/widgets/login_title.dart';
+import 'package:case_app/features/auth/view/widgets/password_field.dart';
 import 'package:case_app/utils/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:sizer/sizer.dart';
 
 class LoginView extends StatelessWidget {
@@ -14,7 +13,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-    return Scaffold(extendBodyBehindAppBar: true, body: buildBody(formKey));
+    return Scaffold(resizeToAvoidBottomInset: false, body: buildBody(formKey));
   }
 
   Widget buildBody(GlobalKey<FormState> formKey) {
@@ -41,7 +40,7 @@ class LoginView extends StatelessWidget {
                 child: FadeInLeft(
                     duration: const Duration(milliseconds: 300),
                     delay: const Duration(milliseconds: 1000),
-                    child: emailField())),
+                    child: const EmailField())),
             const Spacer(
               flex: 2,
             ),
@@ -49,7 +48,7 @@ class LoginView extends StatelessWidget {
                 child: FadeInRight(
                     duration: const Duration(milliseconds: 300),
                     delay: const Duration(milliseconds: 1250),
-                    child: passwordField())),
+                    child: const PasswordField())),
             const Spacer(
               flex: 2,
             ),

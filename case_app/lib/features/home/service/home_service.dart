@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:case_app/core/constants/api_constanst.dart';
-import 'package:case_app/feature/home/model/user_model.dart';
+import 'package:case_app/features/home/model/user_model.dart';
 import 'package:http/http.dart';
 
 class HomeService {
@@ -17,7 +17,7 @@ class HomeService {
         throw Exception('An error occurred');
       }
     } catch (e) {
-      throw Exception("Is the device online?");
+      throw Exception(e.toString());
     }
   }
 }

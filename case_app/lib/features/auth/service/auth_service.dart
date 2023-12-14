@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:case_app/core/constants/api_constanst.dart';
-import 'package:case_app/feature/auth/model/current_user_model.dart';
+import 'package:case_app/features/auth/model/current_user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
