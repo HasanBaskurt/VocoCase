@@ -9,3 +9,5 @@
 - Animation
 
 - Local Storage ( Shared Preferences )
+
+- Rest API
